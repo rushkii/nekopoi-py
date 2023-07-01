@@ -1,0 +1,4 @@
+httpx
+dateparser
+pydantic
+python-slugify
