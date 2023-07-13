@@ -30,12 +30,12 @@ class Base(BaseModel):
 
 class Preview(Base):
     id: int
-    type: t.Union[str, None]
+    type: t.Union[str, None] = None
     date: datetime
     title: str
     image: str
-    slug: t.Union[str, None]
-    description: t.Union[str, None]
+    slug: t.Union[str, None] = None
+    description: t.Union[str, None] = None
     web_url: str
 
 
@@ -52,11 +52,11 @@ class Recent(Base):
 class Search(Base):
     total: int
     total_pages: int
-    result: t.Union[t.List[Preview], None]
+    result: t.Union[t.List[Preview], None] = None
 
 
 class Link(Base):
-    name: t.Union[str, None]
+    name: t.Union[str, None] = None
     link: str
 
 
@@ -69,11 +69,11 @@ class Detail(Base):
     id: int
     date: datetime
     title: str
-    slug: t.Union[str, None]
-    content: t.Union[str, None]
+    slug: t.Union[str, None] = None
+    content: t.Union[str, None] = None
     image: str
-    series: t.Union[str, None]
-    note: t.Union[str, None]
+    series: t.Union[str, None] = None
+    note: t.Union[str, None] = None
     stream: t.List[Link]
     download: t.List[Download]
 
@@ -100,14 +100,14 @@ class Series(Base):
     date: datetime
     title: str
     image: str
-    slug: t.Union[str, None]
+    slug: t.Union[str, None] = None
     web_url: str
     info_meta: InfoMeta
     episode: t.List[Preview]
 
 
 class ComingSoon(Base):
-    result: t.Union[str, None]
+    result: t.Union[str, None] = None
 
 
 class AuthorComment(Base):
@@ -140,4 +140,4 @@ class ThreadComment(Base):
   has_next: bool
   has_previous: bool
   total: int
-  result: t.Union[t.List[Comment], None]
+  result: t.Union[t.List[Comment], None] = None
