@@ -78,7 +78,7 @@ class Methods:
     async def get_by_index(
         self: "nekopoi.NekoPoi",
         letter: str = "0-9",
-        filter: str = filters.HENTAI
+        filter: str = filters.TYPE_HENTAI
     ) -> t.Union[Search, Exception]:
         res = await self._request(
             "/listall",

@@ -78,7 +78,7 @@ from nekopoi import NekoPoi, filters
 
 async def main():
     client = NekoPoi()
-    result = await client.get_by_index(letter="0-9", filter=filters.THREE_D_HENTAI) # default: letter="0-9", filter=filters.HENTAI
+    result = await client.get_by_index(letter="0-9", filter=filters.TYPE_3D_HENTAI) # default: letter="0-9", filter=filters.TYPE_HENTAI
     print(result)
 
 asyncio.run(main())
