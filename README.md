@@ -41,15 +41,20 @@ asyncio.run(main())
 ```py
 # main.py (root directory)
 import asyncio
-from nekopoi import NekoPoi
+from nekopoi import NekoPoi, filters
 
 
 async def main():
     client = NekoPoi()
     result = await client.search_by_genre(term_id=51)
 
+    # or
+    # result = await client.search_by_genre(term_id=filters.SCHOOLGIRL)
+
     # multiple genre selection
     # result = await client.search_by_genre(term_id=[544, 36])
+    # or
+    # result = await client.search_by_genre(term_id=[filters.SCHOOLGIRL, filters.LOLI])
 
     print(result)
 
