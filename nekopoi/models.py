@@ -75,7 +75,7 @@ class Detail(Base):
     series: t.Union[str, None] = None
     note: t.Union[str, None] = None
     stream: t.List[Link]
-    download: t.List[Download]
+    download: t.Union[t.List[Download], None] = None
 
 
 class Genre(Base):
