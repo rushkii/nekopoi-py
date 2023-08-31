@@ -1,0 +1,39 @@
+name: "Check and update version"
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+jobs:
+  check_and_update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v3
+
+      - name: Set up python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.10
+
+      - name: Run updater.py
+        run: |
+          python updater.py
+
+      - name: Check for changes
+        run: |
+          git diff --exit-code || echo "There are changes"
+
+      - name: Commit and push if changed
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "Kiizuha"
+            git config user.email "kiizuha@gnuweeb.org"
+            git add nekopoi/client.py
+            git commit -m "Update NekoPoi client version"
+            git push origin HEAD
+          else
+            echo "No changes to commit"
+          fi
