@@ -5,7 +5,11 @@ import http.client
 
 def get_version():
     client = http.client.HTTPSConnection("cu8auck2lc.3z094n2681i06q8k14w31cu4q80d5p.com")
-    client.request("GET", "/71b8acf33b508c7543592acd9d9eb70d/updateApp")
+    client.request(
+        method="GET",
+        url="/71b8acf33b508c7543592acd9d9eb70d/updateApp",
+        headers={"user-agent": "okhttp/4.9.0"}
+    )
     resp = client.getresponse()
     data = json.loads(resp.read().decode())
     return data["latestVersionCode"]
